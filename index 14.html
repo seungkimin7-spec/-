@@ -1,0 +1,223 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#087a68"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="format-detection" content="telephone=no"><title>의료복지 나침반</title><style>:root{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;color:#172e2a;background:#eff5f2;font-size:19px}*{box-sizing:border-box}body{margin:0}.shell{max-width:740px;margin:auto;background:white;min-height:100dvh;padding:24px 20px 40px}header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:20px;border-bottom:1px solid #dce7e3}.brand{font-size:1.35rem;font-weight:800;color:#087a68}.progress{display:flex;gap:6px;margin:20px 0}.progress span{height:7px;flex:1;border-radius:10px;background:#dfe8e4}.progress span.active{background:#087a68}h1{font-size:1.65rem;line-height:1.3}h2{font-size:1.25rem}p{line-height:1.6}.muted,small{color:#526762}.panel{background:#f3f8f6;border-radius:16px;padding:18px;margin:18px 0}.card{border:2px solid #dfeae5;border-radius:16px;padding:18px;margin:14px 0}.card h2{margin:0 0 8px}.badge{font-size:.8rem;color:#07644e;font-weight:700}button,.btn{font:inherit;font-weight:700;min-height:54px;border:0;border-radius:13px;padding:12px 16px;background:#087a68;color:white;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:4px solid #f0a42a;outline-offset:3px}.secondary{background:#e9f2ef;color:#155d50}.outline{background:white;border:2px solid #087a68;color:#087a68}.full{width:100%;margin:8px 0}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.actions>*{flex:1}.field{margin:20px 0}.field label,.field legend{display:block;font-weight:750;margin-bottom:9px}.field input:not([type=checkbox]):not([type=file]),.field select,.field textarea{font:inherit;width:100%;border:2px solid #94aaa2;border-radius:10px;padding:14px;background:white;color:#172e2a;min-height:54px}.field textarea{min-height:150px}.field fieldset{border:0;padding:0;margin:0}.choice{display:flex;align-items:flex-start;gap:12px;border:2px solid #d9e5e0;padding:13px;border-radius:12px;margin:8px 0;cursor:pointer}.choice input{width:23px;height:23px;accent-color:#087a68;flex-shrink:0}.note{border-left:5px solid #e8b451;background:#fff8e6;padding:13px;margin:14px 0;line-height:1.5}.status{font-weight:700;color:#07644e}img.preview{width:100%;max-height:310px;object-fit:contain;border-radius:12px;background:#f2f2f2}.hidden{display:none!important}footer{border-top:1px solid #dce7e3;margin-top:40px;padding-top:20px;color:#526762;font-size:.8rem;line-height:1.6}a{color:#075eaf;overflow-wrap:anywhere}body.large{font-size:23px}body.large button{min-height:64px}@media(max-width:420px){.shell{padding:18px 14px}.brand{font-size:1.1rem}header button{font-size:.75rem;padding:8px}.actions{flex-direction:column}}
+.cropwrap{position:relative;margin:12px 0}.cropwrap canvas{max-width:100%;height:auto;border:2px solid #087a68;border-radius:10px}.hint{font-size:.85rem;color:#526762}input[type=range]{width:100%;height:32px}
+/* iPad/터치 최적화 (v12) */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+button,.btn,a,label.choice,summary,input[type=range]{touch-action:manipulation}
+.shell{padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right));padding-bottom:max(40px,calc(env(safe-area-inset-bottom) + 24px));padding-top:max(24px,env(safe-area-inset-top))}
+input[type=range]{height:44px}
+input[type=checkbox]{min-width:28px;min-height:28px}
+summary{min-height:48px;display:flex;align-items:center;cursor:pointer}
+.actions>*,.full{min-height:58px}
+img.preview{max-height:min(46vh,420px)}
+@media(min-width:768px){:root{font-size:21px}.shell{max-width:860px;padding-left:max(36px,env(safe-area-inset-left));padding-right:max(36px,env(safe-area-inset-right))}button,.btn{min-height:62px}.field input:not([type=checkbox]):not([type=file]),.field select{min-height:60px}h1{font-size:1.9rem}}
+@media(min-width:768px) and (orientation:landscape){.shell{max-width:980px}img.preview{max-height:min(52vh,460px)}}
+@media(max-height:520px) and (orientation:landscape){.shell{padding-top:12px}header{padding-bottom:10px}.progress{margin:10px 0}}
+#serverUrl{font:inherit;width:100%;min-height:56px;padding:12px;border:2px solid #94aaa2;border-radius:10px;margin-top:6px;background:white;color:#172e2a}.sr{position:absolute;left:-9999px}.opt{display:flex;width:100%;text-align:left;justify-content:flex-start;min-height:64px;margin:10px 0;background:#fff;color:#172e2a;border:2px solid #94aaa2;font-size:1.05rem}.opt.on{background:#e1f3ee;border-color:#087a68}.opt.unk{background:#f6f1e4;border-color:#d1b66a}.meter{height:8px;background:#dfe8e4;border-radius:8px;margin:8px 0 16px}.meter span{display:block;height:100%;background:#087a68;border-radius:8px}.reasons{list-style:none;padding:0;margin:8px 0}.reasons li{padding:4px 0}.m-yes{color:#07644e}.m-unknown{color:#9a6b00}.m-no{color:#b3261e}.danger{background:#b3261e}.grp{margin-top:26px}.lv-possible{border-color:#087a68}.lv-unlikely{opacity:.85}
+@media print{.actions,button,.btn,.progress,header,#speak,.panel:has(#wipe){display:none!important}.shell{max-width:none;padding:0}.card{break-inside:avoid}}
+</style></head><body><main class="shell"><header><div class="brand">✚ 의료복지 나침반</div><button id="fontBtn" class="secondary" type="button">가 글씨 크게</button></header><div class="progress" id="progress" aria-label="진행 단계"></div><section id="screen" aria-live="polite"></section><footer>참고용 안내 도구 · 실제 지원 자격은 공식 기관에서 확인하세요. 본 서비스는 복지제도 탐색 보조 도구입니다. 진단·처방 해석 또는 수급 자격 판정 서비스가 아닙니다. OCR 이미지는 브라우저에서 처리하며 별도 서버로 전송하지 않습니다. 모델 다운로드에는 인터넷이 필요합니다.</footer></main><script>'use strict';
+// Detect medicine rows from recognized text rather than assuming page coordinates.
+function medicineCandidates(text){
+ const lines=String(text||'').split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+ const headers=/약품명|의약품명|처방약품|약\s*품\s*명|약제명/;
+ const reject=/성명|주소|전화|주민등록|병원|약국|환자번호|주의사항|용법|처방일|생년월일|진료과|의사명|보험|환자명|접수번호|수납/;
+ const med=/가상\s*약품|테스트정|시험약|\b(?:[A-Z]\d{2,4})\b|(?:정|캡슐|시럽|주사|mg|㎎|밀리그램|ml|정제)/i;
+ const heading=lines.findIndex(s=>headers.test(s));
+ const section=heading>=0?lines.slice(heading+1,heading+24):lines;
+ return [...new Set(section.filter(s=>s.length>=3&&s.length<=90&&!reject.test(s)&&med.test(s)))].slice(0,16);
+}
+function ocrSectionScore(text){
+ const lines=String(text||'').split(/\r?\n/);
+ return medicineCandidates(text).length*10+lines.filter(x=>/약품명|의약품명|처방약품|약제명/.test(x)).length*4;
+}
+function roiCanvas(source,b){const c=document.createElement('canvas');c.width=b.width;c.height=b.height;c.getContext('2d').drawImage(source,b.x,b.y,b.width,b.height,0,0,b.width,b.height);return c}
+function binaryCanvas(source){const c=document.createElement('canvas');c.width=source.width;c.height=source.height;const ctx=c.getContext('2d',{willReadFrequently:true});ctx.drawImage(source,0,0);const image=ctx.getImageData(0,0,c.width,c.height),d=image.data;let sum=0;for(let i=0;i<d.length;i+=4)sum+=d[i];const mean=sum/(d.length/4);for(let i=0;i<d.length;i+=4){const v=d[i]<Math.max(80,Math.min(210,mean*.87))?0:255;d[i]=d[i+1]=d[i+2]=v}ctx.putImageData(image,0,0);return c}
+</script><script>'use strict';
+const $=id=>document.getElementById(id), state={step:0,image:null,ocr:'',fields:{},answers:{},large:false,ocrAlternatives:[],tableBounds:null,tablePreview:null,manualTop:0,manualBottom:100,manualLeft:0,manualRight:100,rotation:0,enhance:true};
+const agencies={nhis:'https://www.nhis.or.kr/',bokjiro:'https://www.bokjiro.go.kr/',hira:'https://www.hira.or.kr/',nps:'https://www.nps.or.kr/',gov:'https://www.gov.kr/'};
+const VERIFIED_ON='2026-11-17';
+const ageN=a=>(a.age===undefined||a.age===''||a.age==='unknown')?null:Number(a.age);
+const U=c=>c===undefined||c===''||c==='unknown';
+const isSenior=a=>{const n=ageN(a);return n===null?'unknown':n>=65?'yes':'no'};
+const lowIncome=(a,otherIs)=>{if(a.insurance==='medical')return 'yes';if(U(a.income))return 'unknown';return ['basic','near','low'].includes(a.income)?'yes':otherIs};
+const schemes=[
+{id:'ceiling',name:'본인부담상한제',agency:'국민건강보험공단',url:agencies.nhis,tel:'국민건강보험공단 ☎1577-1000',
+ desc:'건강보험 급여 본인부담금이 개인별 연간 상한액을 넘으면 초과분을 돌려받는 제도입니다.',
+ rules:[{t:'건강보험 가입(피부양자 포함)',f:a=>U(a.insurance)?'unknown':a.insurance==='national'?'yes':'no'},{t:'의료비 부담이 큼',f:a=>U(a.expense)?'unknown':a.expense==='high'?'yes':'unknown'}],
+ confirm:['연간 건강보험 급여 본인부담금 합계','본인의 소득분위별 상한액 (비급여·선별급여 등 제외 여부 포함)'],apply:'대상자는 공단이 안내하는 경우가 많습니다. 공식 사이트나 고객센터에서 조회·신청 방법을 확인하세요.',verified:false},
+{id:'special',name:'건강보험 산정특례',agency:'국민건강보험공단',url:agencies.nhis,tel:'국민건강보험공단 ☎1577-1000',
+ desc:'등록된 암·희귀질환 등 특정 질환의 건강보험 본인부담을 줄이는 제도입니다.',
+ rules:[{t:'중증질환(암·희귀질환 등) 진단',f:a=>U(a.condition)?'unknown':a.condition==='severe'?'yes':'no'}],
+ confirm:['정확한 진단명과 산정특례 대상 질환 여부','의료기관을 통한 등록(신청) 여부'],apply:'진단받은 의료기관에서 등록 절차를 안내받는 방식입니다. 담당 의료기관 원무과와 공단에 확인하세요.',verified:false},
+{id:'catastrophic',name:'재난적의료비 지원사업',agency:'국민건강보험공단',url:agencies.nhis,tel:'국민건강보험공단 ☎1577-1000',
+ desc:'과도한 의료비로 경제적 어려움을 겪는 가구를 지원하는 제도입니다.',
+ rules:[{t:'의료비 부담이 매우 큼',f:a=>U(a.expense)?'unknown':a.expense==='high'?'yes':'no'},{t:'소득·재산 수준',f:a=>lowIncome(a,'unknown')}],
+ confirm:['가구 소득·재산 기준','본인 부담 의료비가 기준을 넘는지, 실손보험 등 보전 금액','신청 기한'],apply:'공단 지사 또는 홈페이지에서 신청 조건과 기한을 확인하세요.',verified:false},
+{id:'medical',name:'의료급여',agency:'복지로',url:agencies.bokjiro,tel:'보건복지상담센터 ☎129',
+ desc:'생활이 어려운 사람의 의료비를 국가가 지원하는 제도입니다.',
+ rules:[{t:'이미 의료급여 수급 중이거나 저소득',f:a=>a.insurance==='medical'?'yes':lowIncome(a,'no')}],
+ confirm:['소득인정액, 가구 구성 등 수급 자격','1종·2종 구분'],apply:'주민등록 주소지 읍·면·동 행정복지센터에서 상담·신청합니다.',verified:false},
+{id:'care',name:'노인맞춤돌봄서비스',agency:'복지로',url:agencies.bokjiro,tel:'보건복지상담센터 ☎129',
+ desc:'돌봄이 필요한 어르신께 안전 확인, 생활 지원 등을 제공합니다.',
+ rules:[{t:'만 65세 이상',f:isSenior},{t:'기초생활수급·차상위·기초연금 수급 등 소득 조건',f:a=>lowIncome(a,'unknown')},{t:'돌봄이 필요함(혼자 거주 등)',f:a=>{if(a.care==='no')return 'no';if(a.living==='alone'||a.care==='yes')return U(a.care)?'unknown':'yes';return 'unknown'}}],
+ confirm:['기초생활수급자·차상위계층·기초연금수급자 여부','독거·조손가구 등 가구 상황','선정도구에 따른 우선순위'],apply:'읍·면·동 행정복지센터에 신청 → 선정 조사 → 시·군·구 결정 순서입니다.',
+ verified:true,verifiedNote:'복지로 「2026 나에게 힘이 되는 복지서비스(노령층)」 안내서의 대상·신청 절차 요약과 일치하도록 작성했습니다.'},
+{id:'longterm',name:'노인장기요양보험',agency:'국민건강보험공단',url:agencies.nhis,tel:'국민건강보험공단 노인장기요양보험 ☎1577-1000',
+ desc:'일상생활을 혼자 하기 어려운 분에게 장기요양 서비스를 제공하는 제도입니다.',
+ rules:[{t:'일상생활에 도움이 필요함',f:a=>U(a.care)?'unknown':a.care==='yes'?'yes':'no'},{t:'만 65세 이상 (65세 미만은 노인성 질병 등 별도 조건)',f:a=>{const s=isSenior(a);return s==='no'?'unknown':s}}],
+ confirm:['장기요양 인정 신청과 등급 판정 결과','65세 미만이면 노인성 질병 해당 여부'],apply:'공단 지사 방문·우편·인터넷 등으로 장기요양인정을 신청하면 방문 조사와 등급 판정이 진행됩니다.',verified:false},
+{id:'pension',name:'기초연금',agency:'복지로',url:agencies.bokjiro,tel:'국민연금공단 ☎1355 / 보건복지상담센터 ☎129',
+ desc:'소득인정액이 선정기준액 이하인 어르신께 지급하는 연금입니다.',
+ rules:[{t:'만 65세 이상',f:isSenior},{t:'소득인정액이 선정기준액 이하',f:a=>lowIncome(a,'unknown')}],
+ confirm:['소득인정액 (소득+재산 환산액)','선정기준액은 해마다 바뀌므로 공식 안내 확인 (2026년 안내서: 단독가구 247만 원, 부부가구 395.2만 원)'],apply:'읍·면·동 주민센터, 국민연금공단 지사 방문 또는 복지로 온라인 신청. 방문이 어려우면 ☎1355 찾아뵙는 서비스.',
+ verified:true,verifiedNote:'복지로 「2026 나에게 힘이 되는 복지서비스(노령층)」 안내서 기준입니다.'},
+{id:'local',name:'지자체 의료비 지원사업',agency:'거주 지역 시·군·구청',url:agencies.gov,tel:'보건복지상담센터 ☎129 / 거주지 주민센터',
+ desc:'시·도, 시·군·구마다 별도로 운영하는 의료비·건강 지원사업입니다. 지역에 따라 내용이 크게 다릅니다.',
+ rules:[{t:'거주 지역 확인',f:a=>U(a.region)?'unknown':'yes'},{t:'소득 수준',f:a=>lowIncome(a,'unknown')}],
+ confirm:['거주 지역 시·군·구의 사업 목록과 대상 조건','사업별 신청 기간'],apply:'거주지 읍·면·동 주민센터 또는 시·군·구청 보건소에 문의하세요. 이 앱은 지역별 사업 내용을 확인하지 않았습니다.',verified:false}
+];
+function safe(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function speak(t){if(!('speechSynthesis' in window)){alert('이 브라우저에서는 음성 읽기를 지원하지 않습니다.');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='ko-KR';u.rate=.85;speechSynthesis.speak(u)}
+function setStep(n){state.step=n;render();window.scrollTo(0,0)}
+function nav(){return `<div class="actions">${state.step>0?'<button type="button" class="secondary" id="back">← 이전으로</button>':''}<button type="button" class="secondary" id="home">⌂ 처음으로</button></div>`}
+function bindNav(){if($('back'))$('back').onclick=()=>setStep(state.step-1);if($('home'))$('home').onclick=()=>{if(confirm('처음으로 돌아가면 입력한 처방전과 설문 내용이 지워집니다. 계속할까요?'))reset()}}
+function reset(){if('speechSynthesis' in window)speechSynthesis.cancel();if(state.image)URL.revokeObjectURL(state.image);state.image=null;state.ocr='';state.fields={};state.answers={};state.qi=0;state.detail=null;state.ocrAlternatives=[];state.tableBounds=null;state.tablePreview=null;state.manualTop=0;state.manualBottom=100;state.manualLeft=0;state.manualRight=100;state.rotation=0;state.enhance=true;setStep(0)}
+function render(){ $('progress').innerHTML=Array.from({length:4},(_,i)=>`<span class="${i<=state.step?'active':''}"></span>`).join('');if(state.step===0)start();if(state.step===1)review();if(state.step===2)survey();if(state.step===3)results();bindNav()}
+function start(){ $('screen').innerHTML=`<h1>처방전을 확인하고<br>관련 의료복지 제도를 찾아보세요</h1><p>글씨를 읽기 어려워도 괜찮습니다. 한 단계씩 안내해 드립니다.</p><div class="panel"><h2>① 처방전 촬영 또는 선택</h2><p class="muted">처방전을 밝은 곳에 놓고 글씨가 선명하게 보이도록 촬영해 주세요. 이름·주민등록번호·병원번호는 가리고 촬영해도 됩니다.</p><label class="btn full" for="photo">📷 카메라로 촬영하거나 사진 선택</label><input class="hidden" id="photo" type="file" accept="image/*" capture="environment"><label class="btn outline full" for="upload">🖼 저장된 사진 선택</label><input class="hidden" id="upload" type="file" accept="image/*"><button id="sample" class="secondary full">사진 없이 직접 입력하기</button><div id="preview"></div><div id="cropControls" class="panel hidden"><strong>선택 영역만 다시 읽고 싶으면 조절하세요</strong><p class="hint">이미지 상·하·좌·우 범위를 조절할 수 있습니다. 기본값은 전체 이미지입니다. OCR 결과가 틀리면 약품명 표를 선택해 재인식하세요.</p><label for="topRange">표 시작 위치 <span id="topVal">0%</span></label><input id="topRange" type="range" min="0" max="85" value="0"><label for="bottomRange">표 끝 위치 <span id="bottomVal">100%</span></label><input id="bottomRange" type="range" min="15" max="100" value="100"><label for="leftRange">표 왼쪽 위치 <span id="leftVal">0%</span></label><input id="leftRange" type="range" min="0" max="85" value="0"><label for="rightRange">표 오른쪽 위치 <span id="rightVal">100%</span></label><input id="rightRange" type="range" min="15" max="100" value="100"><button class="secondary full" id="autoCrop" type="button">전체 이미지 범위로 되돌리기</button><button class="secondary full" id="rotatePhoto" type="button">↻ 사진을 90도 회전해서 인식</button><label class="choice"><input type="checkbox" id="enhancePhoto" checked><span>명암 자동 보정 사용 (글씨가 흐려지면 해제)</span></label></div><div class="panel"><label class="choice"><input type="checkbox" id="useServer"><span>더 정확한 서버 인식 사용 (선택). 처방전 사진이 OCR 서버로 <strong>전송</strong>되며, 인식 후 서버에 저장하지 않습니다. 동의하지 않으면 이 기기 안에서만 인식합니다(정확도 낮음).</span></label><label for="serverUrl" class="hint">서버 주소</label><input id="serverUrl" type="url" placeholder="https://… (운영자가 안내한 주소)"></div><p id="ocrStatus" role="status" aria-live="polite"></p><button id="read" class="full hidden">사진에서 글자 인식하기</button></div><div class="note">개인정보 보호: OCR 실행 시 인터넷에서 Tesseract.js와 한국어 모델을 내려받습니다. 선택한 사진은 브라우저 내에서 분석하며 별도 OCR 서버로 업로드하지 않습니다. 인터넷 없이도 직접 입력과 기본 복지 안내를 이용할 수 있습니다. OCR은 첫 실행 시 인터넷이 필요합니다. 민감한 정보를 넣기 전 개인정보 보호에 유의해 주세요.</div>`+nav();const onPhoto=e=>{const f=e.target.files?.[0];if(!f)return;if(!f.type.startsWith('image/')){alert('이미지 파일을 선택해 주세요.');return}if(f.size>15*1024*1024){alert('사진이 너무 큽니다. 15MB 이하 이미지를 선택해 주세요.');return}if(state.image)URL.revokeObjectURL(state.image);state.image=URL.createObjectURL(f);$('preview').innerHTML=`<img class="preview" alt="선택한 처방전 사진" src="${state.image}">`;$('read').classList.remove('hidden');$('cropControls').classList.remove('hidden')};$('photo').onchange=onPhoto;$('upload').onchange=onPhoto;$('sample').onclick=()=>setStep(1);$('read').onclick=()=>($('useServer').checked?recognizeServer():recognize());for(const [id,prop,out] of [['topRange','manualTop','topVal'],['bottomRange','manualBottom','bottomVal'],['leftRange','manualLeft','leftVal'],['rightRange','manualRight','rightVal']])$(id).oninput=e=>{state[prop]=Number(e.target.value);$(out).textContent=e.target.value+'%'};$('rotatePhoto').onclick=()=>{state.rotation=(state.rotation+90)%360;$('ocrStatus').textContent='회전 '+state.rotation+'도 설정됨. 다시 인식 버튼을 눌러 주세요.'};$('enhancePhoto').onchange=e=>state.enhance=e.target.checked;$('autoCrop').onclick=()=>{state.manualTop=0;state.manualBottom=100;state.manualLeft=0;state.manualRight=100;for(const [id,v] of [['topRange',0],['bottomRange',100],['leftRange',0],['rightRange',100]])$(id).value=v;for(const [id,v] of [['topVal',0],['bottomVal',100],['leftVal',0],['rightVal',100]])$(id).textContent=v+'%'};}
+async function loadOCR(){if(window.Tesseract)return;await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';s.onload=resolve;s.onerror=()=>reject(new Error('OCR 프로그램 다운로드 실패. 인터넷 연결을 확인해 주세요.'));document.head.appendChild(s)})}
+async function preprocessImage(url){
+ const image=new Image();image.src=url;await image.decode();
+ const sourceMax=Math.max(image.naturalWidth,image.naturalHeight);
+ // Avoid excessive iPad memory usage; do not upscale tiny images more than 2x.
+ const scale=Math.min(2,2000/sourceMax);
+ const sw=Math.max(1,Math.round(image.naturalWidth*scale)),sh=Math.max(1,Math.round(image.naturalHeight*scale));
+ const sideways=state.rotation%180!==0;
+ const canvas=document.createElement('canvas');canvas.width=sideways?sh:sw;canvas.height=sideways?sw:sh;
+ const ctx=canvas.getContext('2d',{willReadFrequently:true});ctx.translate(canvas.width/2,canvas.height/2);ctx.rotate(state.rotation*Math.PI/180);ctx.drawImage(image,-sw/2,-sh/2,sw,sh);ctx.setTransform(1,0,0,1,0,0);
+ if(!state.enhance)return canvas;
+ const data=ctx.getImageData(0,0,canvas.width,canvas.height);
+ // Percentile-based contrast prevents a few extreme pixels from crushing the text.
+ const hist=new Uint32Array(256);let total=0;
+ for(let i=0;i<data.data.length;i+=4){const v=Math.round(.299*data.data[i]+.587*data.data[i+1]+.114*data.data[i+2]);data.data[i]=data.data[i+1]=data.data[i+2]=v;hist[v]++;total++}
+ let cumulative=0,low=0,high=255;
+ for(let i=0;i<256;i++){cumulative+=hist[i];if(cumulative>=total*.01){low=i;break}}
+ cumulative=0;for(let i=255;i>=0;i--){cumulative+=hist[i];if(cumulative>=total*.01){high=i;break}}
+ if(high-low>30){for(let i=0;i<data.data.length;i+=4){const v=Math.max(0,Math.min(255,Math.round((data.data[i]-low)*255/(high-low))));data.data[i]=data.data[i+1]=data.data[i+2]=v}}
+ ctx.putImageData(data,0,0);return canvas;
+}
+async function recognizeServer(){
+ const b=$('read'),msg=$('ocrStatus'),url=($('serverUrl').value||'').trim().replace(/\/$/,'');
+ if(!/^https?:\/\//.test(url)){msg.textContent='서버 주소를 입력해 주세요. 없으면 동의를 해제하고 기기 안에서 인식할 수 있습니다.';return}
+ b.disabled=true;msg.textContent='서버에 사진을 보내 인식하는 중입니다… (10~20초)';
+ try{
+  const blob=await (await fetch(state.image)).blob();const fd=new FormData();fd.append('file',blob,'prescription.jpg');
+  const ctl=new AbortController();const t=setTimeout(()=>ctl.abort(),90000);
+  const res=await fetch(url+'/api/ocr',{method:'POST',body:fd,signal:ctl.signal});clearTimeout(t);
+  if(!res.ok)throw new Error('서버 응답 오류 ('+res.status+')');
+  const r=await res.json();
+  if(r.retake){msg.textContent=r.message+' (선명도 '+r.blur_score+')';return}
+  // RAW / SUGGESTED / 사용자 확인을 분리: 입력칸에는 '제안'을 넣고, RAW와 후보는 별도로 보관
+  state.ocr='[서버 RAW 원문]\n'+r.raw_text+'\n\n[RAW 약품명]\n'+r.meds.map(m=>m.raw+' (일수 '+(m.days_raw??'?')+')').join('\n');
+  state.ocrAlternatives=[...new Set(r.meds.flatMap(m=>m.candidates))].slice(0,40);
+  const days=[...new Set(r.meds.map(m=>m.days_raw).filter(x=>x!=null))];
+  state.fields={meds:r.meds.map(m=>m.suggested).join('\n'),date:r.date_raw||'',diagnosis:'',days:days.length===1?String(days[0]):'',confidence:null};
+  state.tablePreview=null;setStep(1);
+ }catch(e){msg.textContent=(e.name==='AbortError'?'서버가 응답하지 않습니다.':'서버 연결에 실패했습니다: '+e.message)+' 동의를 해제해 기기 안에서 인식하거나 직접 입력해 주세요.'}
+ finally{b.disabled=false}
+}
+async function recognize(){
+ const b=$('read'),msg=$('ocrStatus');b.disabled=true;msg.textContent='한국어 OCR 모델을 불러오는 중입니다. 첫 실행 시 인터넷이 필요합니다.';let worker;
+ try{
+  await loadOCR();worker=await Tesseract.createWorker(['kor','eng'],1,{logger:m=>{if(m.status==='recognizing text')msg.textContent=`문자 인식 중 ${Math.round((m.progress||0)*100)}%`}});
+  const processed=await preprocessImage(state.image);
+  await worker.setParameters({preserve_interword_spaces:'1'});
+  msg.textContent='전체 문서 읽는 중…';
+  const full=await worker.recognize(processed);const raw=full.data.text||'';
+  state.ocr=raw;state.fields=extract(raw);state.fields.confidence=Math.round(full.data.confidence||0);
+  const isManual=state.manualTop>0||state.manualBottom<100||state.manualLeft>0||state.manualRight<100;
+  let bounds=null;
+  if(isManual){
+    const x=Math.round(processed.width*state.manualLeft/100),right=Math.round(processed.width*state.manualRight/100);
+    const y=Math.round(processed.height*state.manualTop/100),bottom=Math.round(processed.height*state.manualBottom/100);
+    if(right-x<80||bottom-y<50)throw new Error('선택한 영역이 너무 좁습니다. 범위를 넓혀 주세요.');
+    bounds={x,y,width:right-x,height:bottom-y,manual:true};
+  }
+  state.tableBounds=bounds;
+  let candidateTexts=[raw];
+  state.tablePreview=null;
+  if(bounds){
+    const roi=roiCanvas(processed,bounds);state.tablePreview=roi.toDataURL('image/jpeg',.85);
+    msg.textContent='선택한 영역을 추가로 읽는 중…';
+    await worker.setParameters({tessedit_pageseg_mode:'6'});
+    const region=await worker.recognize(roi);candidateTexts.push(region.data.text||'');
+    // Second independent preprocessing pass; no answer-based correction.
+    msg.textContent='선택한 영역을 흑백 보정하여 재인식 중…';
+    const binary=binaryCanvas(roi);const pass=await worker.recognize(binary);candidateTexts.push(pass.data.text||'');
+  }
+  const ranked=candidateTexts.map((text,index)=>({text,index,score:ocrSectionScore(text)})).sort((a,b)=>b.score-a.score);
+  const all=[...new Set(candidateTexts.flatMap(medicineCandidates))];
+  state.ocrAlternatives=all.slice(0,24);
+  // OCR output remains a suggestion: require explicit human confirmation.
+  state.fields.meds=medicineCandidates(ranked[0].text).join('\n');
+  state.ocr=candidateTexts.map((s,i)=>`[OCR 처리 ${i+1}]\n${s}`).join('\n\n');
+  setStep(1);
+ }catch(e){msg.textContent='OCR를 완료하지 못했습니다: '+e.message+' 다시 촬영하거나 직접 입력해 주세요.'}
+ finally{if(worker)await worker.terminate().catch(()=>{});b.disabled=false}
+}
+function extract(t){
+ const date=t.match(/(?:20\d{2})[.\-/년 ]\s*(?:0?[1-9]|1[0-2])[.\-/월 ]\s*(?:[12]?\d|3[01])/);
+ return {meds:medicineCandidates(t).join('\n'),date:date?.[0]||'',diagnosis:'',synthetic:false};
+}
+function review(){const f=state.fields;$('screen').innerHTML=`<h1>② 인식한 내용을 확인해 주세요</h1><p>약품명 인식 정확도는 검증되지 않았습니다. 결과를 신뢰하지 말고 원본과 반드시 대조하세요. 글자 인식에는 오류가 있을 수 있습니다. <strong>약 이름을 반드시 원본 처방전과 한 글자씩 비교</strong>해 주세요. 진단명은 처방전만으로 추측하지 않습니다.</p>${state.image?`<img class="preview" alt="촬영한 처방전" src="${state.image}">`:''}${state.tablePreview?`<div class="panel"><strong>사용자가 지정한 OCR 영역</strong><img class="preview" src="${state.tablePreview}" alt="자동 감지한 표 영역"><p class="hint">이 영역은 사용자가 지정한 범위입니다. 원본 사진과 반드시 대조해 주세요.</p></div>`:'<p class="note">전체 사진을 인식했습니다. 결과가 부정확하면 이전 화면에서 약품명 영역의 상하좌우 범위를 지정하고 재인식하세요.</p>'}<div class="field"><label for="meds">약품명 (한 줄에 하나씩)</label><textarea id="meds" placeholder="예: 약품명 10mg">${safe(f.meds||'')}</textarea></div><div class="field"><label for="date">처방일 (선택)</label><input id="date" value="${safe(f.date||'')}" placeholder="예: 2026-11-16"></div><div class="field"><label for="diagnosis">의사에게 확인한 진단명 (선택)</label><input id="diagnosis" value="${safe(f.diagnosis||'')}" placeholder="예: 고혈압 (확실할 때만 입력)"></div><p class="note">전체 이미지 OCR의 평균 인식 신뢰도(약품명 정확도 아님): ${f.confidence??"측정 안 됨"}% (정확도 보증 아님). 불확실한 약품명은 직접 입력하세요.</p>${state.ocrAlternatives.length?`<details><summary>인식된 약품명 후보 보기 (정답 아님)</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere">${safe(state.ocrAlternatives.join('\n'))}</pre><p>후보는 정확한 약품명으로 확인된 값이 아닙니다.</p></details>`:''}<details><summary>OCR 원문 보기</summary><pre style="white-space:pre-wrap;overflow-wrap:anywhere">${safe(state.ocr||'인식한 원문이 없습니다. 직접 입력 모드입니다.')}</pre></details><div class="note">약품명과 증상은 지원제도 탐색의 단서일 뿐, 질환이나 지원 자격을 확정하지 않습니다.</div><div class="field"><label for="days">투약일수 (선택, 원본 확인 후 입력)</label><input id="days" type="number" min="1" max="365" value="${safe(f.days||'')}" placeholder="예: 7"></div><label class="choice"><input type="checkbox" id="confirmMeds"><span>처방전 원본과 약품명을 비교했습니다. OCR 결과는 틀릴 수 있음을 이해합니다.</span></label><button id="next" class="full">맞춤 설문 시작 →</button>`+nav();$('next').onclick=()=>{if(!$('confirmMeds').checked){alert('원본과 대조한 뒤 확인란을 선택해 주세요.');return}state.fields={meds:$('meds').value,date:$('date').value,diagnosis:$('diagnosis').value,days:$('days').value};setStep(2)}}
+const Q_UNKNOWN=['unknown','잘 모르겠어요'];
+const questions=[
+{id:'age',label:'만 나이가 어떻게 되나요?',type:'number',placeholder:'예: 70'},
+{id:'region',label:'거주하는 지역(시·도)은 어디인가요?',type:'select',options:('서울 부산 대구 인천 광주 대전 울산 세종 경기 강원 충북 충남 전북 전남 경북 경남 제주').split(' ').map(x=>[x,x])},
+{id:'insurance',label:'건강보험 또는 의료급여 자격은 무엇인가요?',options:[['national','건강보험 가입자·피부양자'],['medical','의료급여 수급자']]},
+{id:'income',label:'가구의 경제적 상황은 어떤가요?',options:[['basic','기초생활수급'],['near','차상위계층'],['low','그 외 소득이 낮은 편'],['other','일반 가구']],when:a=>a.insurance!=='medical'},
+{id:'condition',label:'의사에게 확인한 질환은 어떤 종류인가요?',options:[['severe','암·희귀질환 등 중증질환'],['chronic','고혈압·당뇨병 등 만성질환'],['other','기타 질환']]},
+{id:'expense',label:'최근 의료비 부담은 어느 정도인가요?',options:[['high','의료비 부담이 매우 큼'],['normal','크게 부담되지 않음']]},
+{id:'care',label:'일상생활에서 다른 사람의 도움이 필요한가요?',options:[['yes','도움이 필요함'],['no','혼자 생활 가능']],when:a=>{const n=ageN(a);return n===null||n>=60}},
+{id:'living',label:'현재 어떻게 살고 계신가요?',options:[['alone','혼자 거주'],['family','가족 등과 함께 거주']],when:a=>{const n=ageN(a);return n===null||n>=60}}
+];
+const visibleQs=()=>questions.filter(q=>!q.when||q.when(state.answers));
+function pruneAnswers(){const keep=new Set(visibleQs().map(q=>q.id));for(const q of questions)if(!keep.has(q.id))delete state.answers[q.id]}
+function survey(){
+  const qs=visibleQs();state.qi=Math.min(state.qi||0,qs.length-1);const q=qs[state.qi],cur=state.answers[q.id];
+  const sel=(v)=>cur===v?' selected':'';
+  let body='';
+  if(q.type==='number')body=`<div class="field"><label for="ansNum" class="sr">${safe(q.label)}</label><input id="ansNum" type="number" min="0" max="120" inputmode="numeric" placeholder="${q.placeholder}" value="${safe(cur&&cur!=='unknown'?cur:'')}"></div><button class="full" id="ansOk">다음 →</button>`;
+  else if(q.type==='select')body=`<div class="field"><label for="ansSel" class="sr">${safe(q.label)}</label><select id="ansSel"><option value="">선택해 주세요</option>${q.options.map(([v,t])=>`<option value="${v}"${cur===v?' selected':''}>${safe(t)}</option>`).join('')}</select></div><button class="full" id="ansOk">다음 →</button>`;
+  else body=q.options.map(([v,t])=>`<button type="button" class="opt${cur===v?' on':''}" data-v="${v}">${safe(t)}</button>`).join('');
+  body+=`<button type="button" class="opt unk${cur==='unknown'?' on':''}" data-v="unknown">❓ 잘 모르겠어요</button>`;
+  $('screen').innerHTML=`<p class="muted">질문 ${state.qi+1} / ${qs.length}</p><h1 id="qtitle">${safe(q.label)}</h1><div class="meter" aria-hidden="true"><span style="width:${Math.round((state.qi+1)/qs.length*100)}%"></span></div><button type="button" class="secondary full" id="qspeak">🔊 질문 읽어주기</button><div id="opts">${body}</div><p class="hint">모르는 항목은 '잘 모르겠어요'를 누르세요. 그 경우 '추가 확인 필요'로 표시합니다.</p><div class="actions"><button type="button" class="secondary" id="qprev">← 이전 질문</button></div>`+nav();
+  const go=v=>{state.answers[q.id]=v;if(state.qi+1>=visibleQs().length){pruneAnswers();setStep(3)}else{state.qi++;survey();window.scrollTo(0,0);$('qtitle').focus&&$('qtitle').setAttribute('tabindex','-1')}};
+  $('qspeak').onclick=()=>speak(q.label+' '+(q.options?q.options.map(o=>o[1]).join(', ')+', 잘 모르겠어요':''));
+  $('qprev').onclick=()=>{if(state.qi>0){state.qi--;survey();window.scrollTo(0,0)}else setStep(1)};
+  document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>go(b.dataset.v));
+  if($('ansOk'))$('ansOk').onclick=()=>{if(q.type==='number'){const v=$('ansNum').value,n=Number(v);if(v===''||!Number.isInteger(n)||n<0||n>120){alert('만 나이를 0~120 사이 숫자로 입력해 주세요. 모르면 아래 \'잘 모르겠어요\'를 누르세요.');return}go(String(n))}else{const v=$('ansSel').value;if(!v){alert('지역을 선택해 주세요. 모르면 아래 \'잘 모르겠어요\'를 누르세요.');return}go(v)}};
+}
+const LV={possible:'주요 조건 충족 가능',check:'추가 확인 필요',unlikely:'조건 불일치'};
+const MARK={yes:'✔',unknown:'?',no:'✘'};
+function evalScheme(s){const rs=s.rules.map(r=>({t:r.t,st:r.f(state.answers)}));const no=rs.some(r=>r.st==='no'),unk=rs.some(r=>r.st==='unknown');return {s,rs,level:no?'unlikely':unk?'check':'possible'}}
+function summaryHTML(){const a=state.answers,L={national:'건강보험',medical:'의료급여',basic:'기초생활수급',near:'차상위',low:'소득 낮은 편',other:'일반/기타',severe:'중증질환',chronic:'만성질환',high:'부담 큼',normal:'부담 적음',yes:'필요',no:'불필요',alone:'혼자 거주',family:'가족과 거주'};const v=k=>a[k]===undefined?'-':a[k]==='unknown'?'잘 모르겠어요':k==='age'?a[k]+'세':(L[a[k]]||a[k]);return `만 나이: ${safe(v('age'))} · 지역: ${safe(v('region'))}<br>보험: ${safe(v('insurance'))} · 경제상황: ${safe(a.insurance==='medical'?'의료급여 수급':v('income'))}<br>질환: ${safe(v('condition'))} · 의료비: ${safe(v('expense'))}<br>돌봄 필요: ${safe(v('care'))} · 거주: ${safe(v('living'))}<br>처방약: ${safe((state.fields.meds||'미입력').split('\n').filter(Boolean).slice(0,3).join(', ')||'미입력')}`}
+function results(){
+  if(state.detail){detail(state.detail);return}
+  pruneAnswers();const order={possible:0,check:1,unlikely:2};const list=schemes.map(evalScheme).sort((a,b)=>order[a.level]-order[b.level]);state.list=list;
+  const groups=['possible','check','unlikely'].map(l=>{const g=list.filter(x=>x.level===l);return g.length?`<h2 class="grp">${LV[l]} (${g.length})</h2>`+g.map(x=>`<article class="card lv-${l}"><div class="badge">${LV[l]}</div><h2>${safe(x.s.name)}</h2><p>${safe(x.s.desc)}</p><ul class="reasons">${x.rs.map(r=>`<li><b class="m-${r.st}">${MARK[r.st]}</b> ${safe(r.t)}</li>`).join('')}</ul><p class="muted"><strong>담당:</strong> ${safe(x.s.agency)}</p><div class="actions"><button type="button" class="outline" data-d="${x.s.id}">자세히 보기</button><a class="btn outline" target="_blank" rel="noopener noreferrer" href="${x.s.url}">공식 사이트 ↗</a></div></article>`).join(''):''}).join('');
+  $('screen').innerHTML=`<h1>④ 의료복지 추천 결과</h1><div class="note"><strong>이 결과는 수급 자격 판정이 아닙니다.</strong> 입력하신 답으로 살펴볼 만한 제도를 정리한 참고 자료입니다. 최종 자격은 해당 기관에서 확인해 주세요.</div><div class="panel"><strong>입력 정보 요약</strong><p>${summaryHTML()}</p><p class="muted">✔ 일치 · ? 확인 필요 · ✘ 불일치</p></div>${groups}<div class="note">상담 전화: 보건복지상담센터 ☎129, 국민건강보험공단 ☎1577-1000, 국민연금공단 ☎1355</div><button class="secondary full" id="speak">🔊 결과 읽어주기</button><button class="secondary full" id="stopSpeak">음성 중지</button><button class="secondary full" id="edit">설문 다시 수정하기</button><button class="outline full" id="print">결과 인쇄 또는 PDF 저장</button><button class="secondary full" id="export">결과를 텍스트로 저장</button><div class="panel"><strong>🔒 개인정보 안내</strong><p>처방전 사진과 입력한 내용은 이 화면(기기 메모리)에만 있고, 이 앱은 브라우저 저장소에 저장하지 않습니다. 새로고침하거나 아래 버튼을 누르면 사라집니다. 서버 인식을 선택하고 동의한 경우에만 사진이 전송됩니다.</p><button class="full danger" id="wipe">🗑 내 정보 모두 지우고 처음으로</button></div>`+nav();
+  document.querySelectorAll('[data-d]').forEach(b=>b.onclick=()=>{state.detail=b.dataset.d;results();window.scrollTo(0,0)});
+  $('speak').onclick=()=>speak('의료복지 추천 결과입니다. 자격을 확정하는 결과가 아닙니다. '+list.map(x=>x.s.name+', '+LV[x.level]).join('. '));
+  $('stopSpeak').onclick=()=>{if('speechSynthesis' in window)speechSynthesis.cancel()};
+  $('edit').onclick=()=>{state.qi=0;setStep(2)};
+  $('print').onclick=()=>window.print();
+  $('wipe').onclick=()=>{if(confirm('입력한 사진, 약품명, 설문 답변을 모두 지웁니다. 계속할까요?')){reset();alert('모두 지웠습니다.')}};
+  $('export').onclick=()=>{const txt=['의료복지 나침반 결과 (자격 판정이 아닌 참고 자료)','작성일: '+new Date().toLocaleDateString('ko-KR'),'',...list.map(x=>`[${LV[x.level]}] ${x.s.name}\n  담당: ${x.s.agency} / ${x.s.tel}\n  확인할 것: ${x.s.confirm.join('; ')}\n  공식 사이트: ${x.s.url}`),'','제도의 최신 조건은 반드시 공식 기관에서 확인하세요.'].join('\n');const u=URL.createObjectURL(new Blob([txt],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='medicompass_results.txt';a.click();setTimeout(()=>URL.revokeObjectURL(u),2000)};
+}
+function detail(id){
+  const x=evalScheme(schemes.find(s=>s.id===id)),s=x.s;
+  $('screen').innerHTML=`<button type="button" class="secondary" id="dback">← 결과 목록으로</button><div class="badge" style="margin-top:16px">${LV[x.level]}</div><h1>${safe(s.name)}</h1><p>${safe(s.desc)}</p><div class="panel"><strong>내 답변과 비교</strong><ul class="reasons">${x.rs.map(r=>`<li><b class="m-${r.st}">${MARK[r.st]}</b> ${safe(r.t)}</li>`).join('')}</ul></div><div class="panel"><strong>꼭 확인할 것</strong><ul>${s.confirm.map(c=>`<li>${safe(c)}</li>`).join('')}</ul></div><div class="panel"><strong>신청·문의</strong><p>${safe(s.apply)}</p><p>${safe(s.tel)}</p></div><div class="note">${s.verified?'✔ '+safe(s.verifiedNote)+' (확인일 '+VERIFIED_ON+')':'이 앱은 이 제도의 세부 자격 기준을 공식 자료로 확인하지 못했습니다. 위 내용은 제도의 일반적 취지이며, 정확한 조건은 반드시 공식 기관에서 확인하세요.'}</div><a class="btn full" target="_blank" rel="noopener noreferrer" href="${s.url}">공식 사이트 열기 ↗</a><button type="button" class="secondary full" id="dspeak">🔊 읽어주기</button>`;
+  $('dback').onclick=()=>{state.detail=null;results();window.scrollTo(0,0)};
+  $('dspeak').onclick=()=>speak(s.name+'. '+s.desc+' 꼭 확인할 것. '+s.confirm.join('. ')+'. '+s.apply);
+}
+$('fontBtn').onclick=()=>{state.large=!state.large;document.body.classList.toggle('large',state.large);$('fontBtn').textContent=state.large?'가 기본 글씨':'가 글씨 크게'};render();
+</script></body></html>
